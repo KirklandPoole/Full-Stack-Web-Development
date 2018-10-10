@@ -1,0 +1,20 @@
+{% extends "master.html" %}
+{% block content %}
+  <main id="deletepage">
+    <header>
+      <h1>Delete {{ item.name }}</h1>
+    </header>
+    <div class="confirmation">
+      <p>
+        Are you sure you want to delete {{ item.name }} from the database???
+      </p>
+      <form action="#" method = 'post'>
+        <input type="hidden" name="nonce" value="{{nonce}}" />
+        <button class="btn-danger">Delete Item</button>
+        <a href="{{ url_for('showItem', category_name=item.category.name, item_id=item.id) }}">
+          <input type="button" value="Cancel" class="btn-warning"/>
+        </a>
+      </form>
+    </div>
+  </main>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "master.html" %}
+{% block content %}
+  {% include "navlist.html" %}
+  <main class="col-md-10">
+    <header>
+      <h1>{{category}}</h1>
+    </header>
+    {% for item in items %}
+      {% include "itempreview.html" %}
+    {% endfor %}
+  </main>
+{% endblock %}

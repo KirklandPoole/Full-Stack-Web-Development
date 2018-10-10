@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>The Hockey Shop</title>
+    <link href="{{ url_for('atom_feed') }}" rel="alternate" title="Newest Items at The Hockey Shop" type="application/atom+xml">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/styles.css') }}">
+  </head>
+  <body>
+    <div id="wrapper">
+      <header id="banner">
+        <h1 role='banner'><a href="{{ url_for('mainPage') }}">The Hockey Shop</a></h1>
+      </header>
+
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+          <div class="flash">
+            <ul>
+              {% for message in messages %}
+                <li> <strong> {{ message }} </strong> </li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
+        {% endwith %}
+      
+      <div id="maincontent" class="container">
+
+          {% block content %}
+  		  	{% endblock %}
+
+      </div>
+    </div>
+    <footer>
+      Copyright Christopher Crookes 2015
+    </footer>
+  </body>
+</html>
